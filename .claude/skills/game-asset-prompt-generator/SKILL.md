@@ -68,4 +68,6 @@ Optimize for extraction, integration, and consistency in a game production pipel
 - Return these sections in order: Production Safe, Enhanced Detail, Art Director Version, Asset Pipeline Version.
 - Write each prompt as natural-language art direction, not a comma-separated keyword list.
 
-See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), and [prompt patterns](references/prompt-patterns.md).
+When the request closely matches an existing example, load that example first and adapt it rather than regenerating structure from scratch.
+
+See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), and [examples](references/examples.md).

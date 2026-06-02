@@ -28,6 +28,7 @@ Planned adjacent skills:
     references/
       asset-types.md
       art-styles.md
+      examples.md
       icon-guidelines.md
       prompt-patterns.md
       readability-rules.md
@@ -41,3 +42,7 @@ This is not a ComfyUI workflow repository. It sits one layer earlier in the pipe
 Creative idea -> game asset analysis -> art direction -> prompt variants
 
 That keeps the skill durable across model changes and useful even when the image-generation stack changes.
+
+## What to build next
+
+The highest-leverage improvement is a growing example library. Curated before-and-after prompt transformations make the skill more reliable than adding large amounts of abstract rule text.
