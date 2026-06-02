@@ -28,11 +28,12 @@ Planned adjacent skills:
     references/
       asset-types.md
       art-styles.md
-      examples.md
+      prompt-corpus.md
       icon-guidelines.md
       prompt-patterns.md
       readability-rules.md
       sprite-guidelines.md
+      test-set.md
 ```
 
 ## Positioning
@@ -45,4 +46,4 @@ That keeps the skill durable across model changes and useful even when the image
 
 ## What to build next
 
-The highest-leverage improvement is a growing example library. Curated before-and-after prompt transformations make the skill more reliable than adding large amounts of abstract rule text.
+The highest-leverage improvement is a growing prompt corpus. Curated before-and-after prompt transformations with result notes make the skill more reliable than adding large amounts of abstract rule text.
