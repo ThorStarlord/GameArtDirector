@@ -24,6 +24,7 @@ Where:
 |------|-------|-------|---------|---|---|---|---|----------|-----------|-------|
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 1 baseline | 7 | 5 | 7 | 8.5 | CT-01 | SP-01 | generic secure corridor, glass dominant, weak identity, good depth from light rhythm |
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 2 architectural vocab | 7 | 8 | 6 | 8.7 | CT-05 | SP-02 | strong institutional identity via repetition, lost depth (camera hugged wall), less VN-usable |
+| 2026-06-03 | Z Image Turbo | aegis-wing | Test 3 lighting structure | 8 | 4 | 7 | 7.8 | CT-01 | SP-01 | model ignored light-pool/shadow abstractions, produced uniform bright corridor, drifted to modern office. Lighting vocabulary is a weaker signal than architectural vocabulary for this model. |
 
 ## Analysis prompts
 
@@ -35,5 +36,6 @@ After logging 10+ rows, ask:
 - Which asset type is hardest to get right?
 - Are any CT codes never observed (possible candidates for removal)?
 - Are any SP codes correlated with Q >= 8?
+- Which prompt signal types produce the strongest model response? (Early evidence: concrete countable objects > abstract spatial descriptions)
 
 Enter answers into the relevant catalog headers.
