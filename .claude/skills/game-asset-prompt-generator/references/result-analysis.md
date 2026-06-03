@@ -25,15 +25,15 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 **Observed:** A security corridor or institutional interior looks like a standard office building — white walls, dropped ceiling tiles, generic doors, beige floor.
 
-**Likely cause:** Prompt described the room function (corridor, secure facility) but didn't provide enough architectural vocabulary to differentiate it from the model's default "indoor hallway" training data.
+**Likely cause:** Prompt described the room function (corridor, secure facility) but didn't provide enough architectural vocabulary to differentiate it from the model's default "indoor hallway" training data. Generic lighting descriptions ("cool blue-white architectural lighting") exacerbate this drift.
 
-**Correction:** Add clearance hardware cadence (sealed doors, access readers, panel rhythms, ID-card slots). Add negative identity: "not an office, not a research lab." Specify wall materials as institutional-grade (slate-blue panels, sealed concrete, brushed metal trim) rather than generic painted drywall.
+**Correction:** Add clearance hardware cadence (sealed doors, access readers, panel rhythms, ID-card slots). Add negative identity: "not an office, not a research lab." Specify wall materials as institutional-grade (slate-blue panels, sealed concrete, brushed metal trim) rather than generic painted drywall. Avoid standalone generic lighting language — tie light to function or omit it.
 
 **Most impacted variant:** Production Safe, Enhanced Detail
 
 **Status:** Observed
 
-**Evidence:** 0 observations
+**Evidence:** 3 observations — Test 1 (baseline), Test 3 (lighting only), Test 4 (architecture + lighting)
 
 ---
 
@@ -178,6 +178,22 @@ Each entry links an observable image failure to its likely prompt cause, correct
 **Status:** Observed
 
 **Evidence:** 0 observations
+
+---
+
+### CT-11: Corporate Office Drift from Generic Lighting
+
+**Observed:** An institutional environment that uses security architectural vocabulary still reads as a modern office building. The identity gained from hardware repetition is undermined by the lighting register.
+
+**Likely cause:** Generic architectural lighting descriptions — "cool blue-white architectural lighting", "bright even illumination" — trigger the model's "corporate office" training data rather than its "secure facility" training data. The model maps cool clean light to commercial interiors, not institutional ones.
+
+**Correction:** Either omit generic lighting language entirely (let architecture carry identity alone) or tie lighting explicitly to restriction and function: "measured and surveilling institutional lighting, not commercial office lighting. Light is controlled and directional, not ambient." Avoid standalone "cool blue-white" phrasing without a functional constraint.
+
+**Most impacted variant:** Enhanced Detail, Art Director
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Test 4 scored lower than Test 2 because adding generic lighting diluted architectural identity
 
 ---
 
