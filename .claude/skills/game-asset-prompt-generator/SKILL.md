@@ -23,6 +23,7 @@ Default to natural-language prompt writing. Do not use legacy quality tags such 
 4. Expand the request using the core prompt framework.
 5. Return exactly 4 prompt variants with distinct emphasis.
 6. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
+7. After image generation, evaluate results against the failure pattern catalog in references/result-analysis.md and feed corrections back into prompt revision.
 
 ## Core prompt framework
 
@@ -111,4 +112,4 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 
 When the request closely matches an existing corpus entry, load that entry first and adapt it rather than regenerating structure from scratch.
 
-See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), and [test set](references/test-set.md).
+See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), [test set](references/test-set.md), [result analysis](references/result-analysis.md), and [success patterns](references/success-patterns.md).
