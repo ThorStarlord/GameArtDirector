@@ -22,7 +22,8 @@ Where:
 
 | Date | Model | Asset | Variant | R | S | P | Q | Failures | Successes | Notes |
 |------|-------|-------|---------|---|---|---|---|----------|-----------|-------|
-|      |       |       |         |   |   |   |   |          |           |       |
+| 2026-06-03 | Z Image Turbo | aegis-wing | Test 1 baseline | 7 | 5 | 7 | 8.5 | CT-01 | SP-01 | generic secure corridor, glass dominant, weak identity, good depth from light rhythm |
+| 2026-06-03 | Z Image Turbo | aegis-wing | Test 2 architectural vocab | 7 | 8 | 6 | 8.7 | CT-05 | SP-02 | strong institutional identity via repetition, lost depth (camera hugged wall), less VN-usable |
 
 ## Analysis prompts
 

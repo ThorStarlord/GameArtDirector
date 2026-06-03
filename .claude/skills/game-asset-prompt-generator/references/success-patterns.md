@@ -21,7 +21,7 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 **Status:** Observed
 
-**Evidence:** 0 observations
+**Evidence:** 1 observation — Test 1 (baseline with light-pool rhythm) produced strong depth; Test 2 (architectural vocab without explicit camera position) lost depth, suggesting depth requires explicit centered-perspective + light-rhythm instructions
 
 ---
 
@@ -37,7 +37,7 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 **Status:** Observed
 
-**Evidence:** 0 observations
+**Evidence:** 1 observation — Test 2 (architectural vocab) scored higher on identity than Test 1 (baseline) with only repetition added
 
 ---
 
