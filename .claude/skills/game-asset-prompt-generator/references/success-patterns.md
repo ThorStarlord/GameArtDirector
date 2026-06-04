@@ -37,7 +37,7 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 **Status:** Observed
 
-**Evidence:** 1 observation — Test 2 (architectural vocab) scored higher on identity than Test 1 (baseline) with only repetition added
+**Evidence:** 3 observations — Tests 2, 4, 5 all showed stronger identity from architectural repetition. Test 5 (architecture + materials) scored highest at 9.0, suggesting materials amplify the repetition effect.
 
 ---
 
