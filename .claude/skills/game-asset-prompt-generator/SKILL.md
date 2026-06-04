@@ -23,7 +23,8 @@ Default to natural-language prompt writing. Do not use legacy quality tags such 
 4. Expand the request using the core prompt framework.
 5. Return exactly 4 prompt variants with distinct emphasis.
 6. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
-7. After image generation, evaluate results against the failure pattern catalog in references/result-analysis.md and feed corrections back into prompt revision.
+7. If using Ideogram 4 with regional prompting, convert architectural zone descriptions into region boxes: expose each zone as a bounding-box region with an architectural mass noun (floor plane, left wall, right wall, ceiling) rather than listing individual props. Keep to 4-5 regions max.
+8. After image generation, evaluate results against the failure pattern catalog in references/result-analysis.md and feed corrections back into prompt revision.
 
 ## Core prompt framework
 
@@ -101,6 +102,9 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 - In Art Director prompts, open with a narrative thesis that collapses the space's worldbuilding into one frame. State the room's narrative function AND what narrative purpose it does NOT serve. Couple each compositional choice to its narrative reason, not just its visual form.
 - When defining a faction's identity across multiple environment assets, provide two layers: a 2-3 word material ethos for surface constraint, and a vocabulary of repeated architectural elements (door cadence, panel rhythm, access hardware pattern) for spatial identity.
 - For dense prompts exceeding ~150 words, organize into labeled sections (SCENE, LIGHTING, PALETTE, MOOD, COMPOSITION, TECHNICAL) to keep the prompt additive and navigable rather than a flat prose wall.
+- When using Ideogram 4 regional prompting, describe regions as architectural masses (e.g., "registration counters", "observation windows", "industrial ceiling") not individual props (e.g., "keyboard", "camera", "light fixture"). The model treats region descriptions as semantic zone occupancy, not precise object placement instructions.
+- In Ideogram 4 regional prompts, ensure every region description reinforces the same room type as the high-level description. Mixing room types across regions (e.g., command center equipment in a corridor scene) causes the region descriptions to override the intended scene identity — see CT-16.
+- For Ideogram 4 VN backgrounds, set the style block fields to `medium: digital illustration`, `aesthetics: Japanese visual novel background art`, `lighting: cold institutional lighting`, and leave `photo` blank. The defaults inherited from character-generation workflows (photography medium, character-focused aesthetics) actively degrade VN background results.
 
 ## Output requirements
 
@@ -112,4 +116,4 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 
 When the request closely matches an existing corpus entry, load that entry first and adapt it rather than regenerating structure from scratch.
 
-See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), [test set](references/test-set.md), [result analysis](references/result-analysis.md), [success patterns](references/success-patterns.md), [experiment log](references/experiment-log.md), [principles](references/principles.md), [Z-Image Turbo notes](references/z-image-turbo-notes.md), and [model behavior](references/model-behavior.md).
+See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), [test set](references/test-set.md), [result analysis](references/result-analysis.md), [success patterns](references/success-patterns.md), [experiment log](references/experiment-log.md), [principles](references/principles.md), [Z-Image Turbo notes](references/z-image-turbo-notes.md), [model behavior](references/model-behavior.md), and [Ideogram regional prompting](references/ideogram-regional-prompting.md).
