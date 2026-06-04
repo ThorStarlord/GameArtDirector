@@ -218,6 +218,22 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-13: Scale Collapse
+
+**Observed:** The model renders all specified objects correctly but collapses the scene scale — a facility prompt produces a single room, a single module, or a small compartment. Objects are present but the environment feels like a closet rather than a hall.
+
+**Likely cause:** The prompt listed objects that individually imply small enclosed spaces: "holding cell doors", "secure evidence lockers", "security transfer gates". The model assembled them at their implied scale rather than scaling up to "facility." Objects carry scale priors — lockers and holding cells live in small rooms.
+
+**Correction:** Establish room scale as the first constraint before listing any objects. Open with a scene anchor: "large institutional processing hall, wide-open floor, multiple intake stations arranged in rows, central security circulation zone." Then list the infrastructure. The model needs to know "hall first, details second" — otherwise objects with small-scale priors dominate the composition.
+
+**Most impacted variant:** Enhanced Detail, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Room test 5 rendered all objects correctly but collapsed to containment module scale. Contrasts with checkpoint lobby test where "checkpoint lobby" itself anchors large room scale.
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.
