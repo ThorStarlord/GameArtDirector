@@ -137,6 +137,22 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 ---
 
+### SP-09: Regional Zone Compliance (Ideogram)
+
+**Observed:** Ideogram's regional prompting system consistently places architectural masses in their assigned bounding box zones. Floor regions produce empty floors, left/right wall regions produce differentiated architecture, ceiling regions produce infrastructure. The model treats regions as semantic zone assignments, not precise layout constraints.
+
+**Likely cause:** Ideogram's training includes object-region conditioning that allows the model to associate bounding box areas with architectural concepts. The model interprets a region description as "this area should primarily contain concepts related to X" rather than "draw exactly X at these pixel coordinates."
+
+**Preserve:** Structure regions as architectural zones (floor plane, left wall, right wall, ceiling) rather than individual props. Each region should contain an architectural mass noun with optional material qualifier (e.g., "registration counters" not "counter with keyboard"). Keep to 4-5 regions max for environments — more than that triggers character/object placement behavior.
+
+**Most impactful variant:** Production Safe, Asset Pipeline (for VN background production)
+
+**Status:** Observed
+
+**Evidence:** 3 observations — Ideogram Tests 1, 2, 3. Corridor test: floor/doors/glass/ceiling regions all strongly obeyed. Intake office test: registration counters appeared on left, observation windows on right. Command center test: workstation regions overrode HLD. Consistent regional compliance across all tests.
+
+---
+
 ## Entry Template
 
 Use this when you identify a new success pattern.

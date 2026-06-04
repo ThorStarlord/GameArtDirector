@@ -266,6 +266,38 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-16: Regional Scene Lock (Ideogram)
+
+**Observed:** Regional descriptions dominate scene composition to the point of overriding the high-level description. A "containment corridor" with command-center regions produces a command center. The model follows the regions' implied room type, not the HLD's stated room type.
+
+**Likely cause:** In Ideogram's hierarchy, regional descriptions (Level 1) appear to have stronger influence than the high-level description (Level 3). If regions describe furniture/architecture from a different room type, the HLD is ignored.
+
+**Correction:** Ensure every region description reinforces the same room type as the HLD. Each architectural mass noun must be consistent with the stated location. Corridor test: all regions must reference corridor-appropriate elements (doors, glass partitions, ceiling channels, floor). Do not mix room types across regions (e.g., analyst workstations in a corridor).
+
+**Most impacted variant:** Production Safe, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Ideogram Test 3. HLD="containment corridor", regions="analyst workstations, tactical displays, observation gallery". Output was a convincing operations center, not a corridor.
+
+---
+
+### CT-17: Flat Composition / No Perspective Depth (Ideogram Regional)
+
+**Observed:** Regional prompting produces front-facing architectural elevations rather than deep perspective scenes. Walls left/right/ceiling/floor produce a flat room with no vanishing point even when the background description specifies depth.
+
+**Likely cause:** Regions describe four architectural planes (left wall, right wall, ceiling, floor), which the model assembles as a front-facing box. The regional structure conflicts with the perspective requirement — the model prioritizes the regional plane assignment over the camera instruction in the background description.
+
+**Correction:** Do not use left/right wall regions for corridor scenes. Background description alone controls perspective. For corridor depth, either omit regional prompting entirely or restructure regions as foreground/mid/background layers instead of wall planes. The background description must contain explicit perspective language ("centered vanishing point, corridor receding into darkness").
+
+**Most impacted variant:** Production Safe, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Ideogram Test 1. 4 regions (floor/doors/glass/ceiling) produced strong semantic compliance but zero corridor depth despite background description specifying "long corridor receding into darkness."
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.

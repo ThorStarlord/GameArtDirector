@@ -46,6 +46,9 @@ Where:
 | 2026-06-04 | Z Image Turbo | intake-processing | Room test 8: security architecture A/B | A | 8 | 7 | 7 | 8.2 | CT-14, CT-15 | SP-03 | Consumer drift reduced but objects collapsed to identical rows. |
 | 2026-06-04 | Z Image Turbo | intake-checkpoint | Room test 9: spatial staging checkpoint | A | 8 | 7 | 7 | 6.5 | CT-15 | SP-03 | Spatial staging partial success. Hardware → generic kiosks. |
 | 2026-06-04 | Z Image Turbo | operations-center | Room test 10: metahuman command center | A | 9 | 5 | 7 | 8.0 | structure-collapse | none | Atmosphere 9/10, structure 5/10. Multi-level collapsed. |
+| 2026-06-04 | Ideogram 4 | containment-corridor | Ideogram Test 1: corridor with 4 regions (floor/doors/glass/ceiling) | A | 7 | 8 | 8 | 8.5 | depth-flat | SP-08 | Regions strongly obeyed (floor 10/10, doors 9/10, glass 9/10, ceiling 10/10) but corridor depth weak (3/10). Front-facing institutional room instead of hallway. Style config changed to VN profile — convincing VN art style. |
+| 2026-06-04 | Ideogram 4 | intake-office | Ideogram Test 2: intake office with 4 regions (floor/counters/windows/ceiling) | A | 8 | 9 | 8 | 9.0 | none | SP-08 | Regions assembled into coherent waiting room despite no "waiting room" in prompt. Region descriptions (registration counters, observation windows) dominated composition. VN style consistent. |
+| 2026-06-04 | Ideogram 4 | operations-center | Ideogram Test 3: command center regions overrode corridor HLD | A | 8 | 7 | 7 | 8.0 | scene-conflict | SP-08 | Regions (workstations, displays, gallery) overpowered "containment corridor" HLD. Model produced convincing VN operations center but wrong room type. Proves regions > HLD in hierarchy. |
 
 ## Analysis prompts
 
