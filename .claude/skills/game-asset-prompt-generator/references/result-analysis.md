@@ -214,7 +214,7 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 **Status:** Observed
 
-**Evidence:** 1 observation — Room test 4 scored 7.0; model produced locker room instead of intake facility. Contrasts with checkpoint test (9.2) where every function had obvious physical objects.
+**Evidence:** 2 observations — Room test 4 (bureaucratic labels → locker room, 7.0) and Room test 6 (scale fixed but admin functions still → computer terminals/desks, 8.5). Even with correct scale, Level 3 administrative concepts default to generic office furniture.
 
 ---
 
