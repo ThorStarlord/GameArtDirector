@@ -30,6 +30,7 @@ Where:
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 6 government facility identity | 7 | 10 | 7 | 9.2 | none | SP-02 | access control became architectural theme. negative identity constraints effective. first image that reads as restricted-access facility rather than secure hallway. still flat — identity strong, environmental storytelling weak. |
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 7 narrative function | 7 | 6 | 6 | 8.3 | CT-01 | SP-02 | model ignored high-level narrative (containment, oversight, clearance). translated "administrative" into office. introduced desks/workstations. Narrative/functional language is a weak signal. Key finding: purpose must be translated into visible artifacts, not abstract concepts. |
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 8 security infrastructure | 8 | 10 | 8 | 9.4 | signage-tbd | SP-02, SP-07 | cameras, turnstiles, warning signs, observation windows. First image where function is visible: corridor answers WHY it exists (screening, access control, monitoring). Still not AEGIS-specific — reads as high security broadly. Signage drift (generic symbols). |
+| 2026-06-03 | Z Image Turbo | aegis-wing | Test 9 full VN corridor | 9 | 9 | 9 | 9.5 | generic-identity | SP-01, SP-03, SP-05, SP-06 | First image with strong depth + atmosphere. Behavioral lighting (geometric pools, shadow zones, teal bleed, amber strip) finally worked — earlier tests used generic "cool blue-white" which is weak, but specific visible light behavior is strong. Composition solved (centered VP, receding darkness, 35% floor). Still organizationally generic: reads as secure facility broadly, not AEGIS specifically. |
 
 ## Analysis prompts
 
@@ -43,25 +44,29 @@ After logging 10+ rows, ask:
 - Are any SP codes correlated with Q >= 8?
 - Which prompt signal types produce the strongest model response? (Early evidence: concrete countable objects > abstract spatial descriptions)
 
-## Emerging signal hierarchy (preliminary, 8 tests)
+## Emerging signal hierarchy (preliminary, 9 tests)
 
 | Signal type | Score | Responsiveness |
 |-------------|-----------|----------------|
+| Full VN corridor (behavioral lighting + composition + materials) | 9.5 | Strong — first image with depth + atmosphere + readability |
 | Security infrastructure | 9.4 | Strong — cameras, turnstiles, signage immediately rendered |
 | Arch + Materials + Identity | 9.2 | Strong — access control became theme |
 | Architecture + Materials | 9.0 | Strong — material cohesion |
 | Architecture alone | 8.7 | Strong — clear identity |
 | Baseline (no signals) | 8.5 | — |
 | Narrative function added | 8.3 | Weak — model ignores abstract purpose, translates to office |
-| Architecture + Lighting | 8.0 | Weak — lighting dilutes architecture |
-| Lighting alone | 7.8 | Weak — office drift
+| Architecture + Lighting (generic) | 8.0 | Weak — generic lighting dilutes architecture |
+| Lighting alone (generic) | 7.8 | Weak — office drift
 
-Enter answers into the relevant catalog headers.
-
-## Key discovery (7 tests)
+## Key discovery (9 tests, with important refinement)
 
 > The model responds to things it can draw, not things it has to infer.
->
-> High-level narrative purpose → weak signal. Must be translated into visible architectural consequences (checkpoints, observation windows, hardware) before the model will render it.
->
-> Signal strength ranking: physical constraints (doors, readers, materials, segmentation) > identity constraints (negative space, access control theme) > functional narrative (purpose, classification, oversight) > atmospheric lighting (mood, shadow, beam structure).
+
+**Refinement — lighting signal strength depends on specificity:**
+- Generic lighting ("cool blue-white architectural lighting") → weak signal, office drift
+- Behavioral lighting ("geometric pools of light at 4m intervals, deep shadow zones between each pool, cool blue cast, ambient teal glow through glass") → strong signal, creates atmosphere
+
+The earlier tests (3, 4) used generic lighting language. Test 9 used behavioral lighting language. The difference is significant. This refines CT-11: the failure is not "lighting descriptions" but "generic lighting descriptions without visible behavior."
+
+**Signal strength ranking (refined):**
+physical constraints (doors, readers, materials) > behavioral lighting (pools, shadows, specific cast colors) > identity constraints (negative space, access control theme) > functional narrative (purpose, classification) > generic atmospheric lighting (mood adjectives without visual behavior)

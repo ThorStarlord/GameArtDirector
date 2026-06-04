@@ -101,7 +101,7 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 **Status:** Observed
 
-**Evidence:** 0 observations
+**Evidence:** 1 observation — Test 9 (behavioral lighting: geometric pools, shadow zones, specific cast colors) produced strong atmosphere; earlier Tests 3/4 (generic lighting: "cool blue-white") produced office drift. Behavioral lighting is a strong signal; generic lighting is not.
 
 ---
 

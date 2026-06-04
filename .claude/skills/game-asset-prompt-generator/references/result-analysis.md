@@ -187,13 +187,15 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 **Likely cause:** Generic architectural lighting descriptions — "cool blue-white architectural lighting", "bright even illumination" — trigger the model's "corporate office" training data rather than its "secure facility" training data. The model maps cool clean light to commercial interiors, not institutional ones.
 
-**Correction:** Either omit generic lighting language entirely (let architecture carry identity alone) or tie lighting explicitly to restriction and function: "measured and surveilling institutional lighting, not commercial office lighting. Light is controlled and directional, not ambient." Avoid standalone "cool blue-white" phrasing without a functional constraint.
+**Refinement — generic vs. behavioral:** The failure is not "lighting descriptions" broadly but specifically *generic* lighting descriptions. Test 9 showed that behavioral lighting ("geometric pools of light at 4m intervals, deep shadow zones between each pool, cool blue cast, ambient teal glow through glass, amber safety strip") produces strong atmosphere and depth. The correction is to replace generic adjectives with measurable visible behavior.
+
+**Correction:** Replace generic lighting adjectives with visible light behavior. Instead of "cool blue-white architectural lighting", use "recessed ceiling LED channels creating geometric light pools with visible shadow bands between. Cool blue cast. Ambient teal glow from equipment behind glass. Dim amber safety-strip at floor level." Describe what the light *does* geometrically, not what color it *feels* like.
 
 **Most impacted variant:** Enhanced Detail, Art Director
 
 **Status:** Observed
 
-**Evidence:** 1 observation — Test 4 scored lower than Test 2 because adding generic lighting diluted architectural identity
+**Evidence:** 2 observations — Test 4 (generic lighting, 8.0) vs Test 9 (behavioral lighting, 9.5). The 1.5 point gap isolates the difference between generic and behavioral lighting language.
 
 ---
 
