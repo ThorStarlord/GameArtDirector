@@ -29,6 +29,7 @@ Where:
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 5 architecture + materials | 7 | 9 | 7 | 9.0 | none | SP-02 | best result so far. material cohesion visible, strong institutional identity, no office drift. depth still a weakness — image reads as elevation concept art more than walkable environment. |
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 6 government facility identity | 7 | 10 | 7 | 9.2 | none | SP-02 | access control became architectural theme. negative identity constraints effective. first image that reads as restricted-access facility rather than secure hallway. still flat — identity strong, environmental storytelling weak. |
 | 2026-06-03 | Z Image Turbo | aegis-wing | Test 7 narrative function | 7 | 6 | 6 | 8.3 | CT-01 | SP-02 | model ignored high-level narrative (containment, oversight, clearance). translated "administrative" into office. introduced desks/workstations. Narrative/functional language is a weak signal. Key finding: purpose must be translated into visible artifacts, not abstract concepts. |
+| 2026-06-03 | Z Image Turbo | aegis-wing | Test 8 security infrastructure | 8 | 10 | 8 | 9.4 | signage-tbd | SP-02, SP-07 | cameras, turnstiles, warning signs, observation windows. First image where function is visible: corridor answers WHY it exists (screening, access control, monitoring). Still not AEGIS-specific — reads as high security broadly. Signage drift (generic symbols). |
 
 ## Analysis prompts
 
@@ -42,10 +43,11 @@ After logging 10+ rows, ask:
 - Are any SP codes correlated with Q >= 8?
 - Which prompt signal types produce the strongest model response? (Early evidence: concrete countable objects > abstract spatial descriptions)
 
-## Emerging signal hierarchy (preliminary, 7 tests)
+## Emerging signal hierarchy (preliminary, 8 tests)
 
 | Signal type | Score | Responsiveness |
 |-------------|-----------|----------------|
+| Security infrastructure | 9.4 | Strong — cameras, turnstiles, signage immediately rendered |
 | Arch + Materials + Identity | 9.2 | Strong — access control became theme |
 | Architecture + Materials | 9.0 | Strong — material cohesion |
 | Architecture alone | 8.7 | Strong — clear identity |

@@ -105,6 +105,22 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 ---
 
+### SP-07: Visible Consequences Over Abstract Intent
+
+**Observed:** The model renders security infrastructure (cameras, turnstiles, warning signs, observation windows) far more reliably than it renders abstract concepts (containment, oversight, classification).
+
+**Likely cause:** The model has been trained on photographs of environments with visible security hardware. Abstract organizational concepts lack a direct visual training signal.
+
+**Preserve:** Instead of communicating purpose through narrative labels ("containment facility", "oversight division"), translate purpose into visible architectural consequences: checkpoints, cameras, turnstiles, observation windows, warning signage, clearance displays. Ask: "What would this function look like in a photograph?"
+
+**Most impactful variant:** Enhanced Detail, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Test 8 (security infrastructure) scored 9.4, significantly outperforming Test 7 (narrative function) at 8.3
+
+---
+
 ## Entry Template
 
 Use this when you identify a new success pattern.
