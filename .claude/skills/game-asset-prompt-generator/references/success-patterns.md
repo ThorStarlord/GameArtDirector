@@ -121,6 +121,22 @@ What to preserve. Mirrors the failure catalog but captures prompt strategies tha
 
 ---
 
+### SP-08: Atmosphere > Architectural Structure
+
+**Observed:** The model consistently produces the emotional and functional identity of a space (surveillance, operations, security, containment) but struggles with complex architectural organization (tiered floors, mezzanines, multi-level layouts, branching corridor networks). Atmosphere renders reliably; structural complexity collapses.
+
+**Likely cause:** The model has been trained on photographs that capture spatial atmosphere naturally through lighting, materials, and objects — but complex organizational structures (mezzanines, tiered seating, branched corridors) require deliberate compositional planning that few single photographs demonstrate. The model defaults to single-room, single-level layouts.
+
+**Preserve:** Design environments around single-level, single-volume spaces. If multi-level structure is needed, stage it as distinct foreground/mid/background planes rather than describing vertical organization. Avoid "tiered", "multi-level", "mezzanine", "upper gallery" unless you expect the model to simplify them.
+
+**Most impactful variant:** Enhanced Detail, Art Director
+
+**Status:** Observed
+
+**Evidence:** 4+ observations across checkpoint hall, intake hall, operations center, and command center tests. Complex spatial organization consistently simplified.
+
+---
+
 ## Entry Template
 
 Use this when you identify a new success pattern.
