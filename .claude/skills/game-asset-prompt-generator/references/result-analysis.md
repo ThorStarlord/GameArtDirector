@@ -234,6 +234,22 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-14: Consumer Kiosk Drift
+
+**Observed:** Screen-based terminals in a security context render as arcade machines, ticket kiosks, airport check-in terminals, or shopping mall information points. The environment shifts from "government security processing" to "consumer public service."
+
+**Likely cause:** Objects with strong consumer-context training data (screen + pedestal + kiosk form factor) override the intended security context. The model has far more photographs of airport check-in kiosks, arcade machines, and subway ticket terminals than it does of biometric enrollment stations or security clearance kiosks. The consumer prior dominates.
+
+**Correction:** Surround screen-based terminals with unambiguous security architecture that constrains the context. Instead of isolated kiosks, embed them within: "security turnstiles between processing zones, reinforced ballistic observation windows, overhead surveillance cameras, armed checkpoint architecture, access-controlled security doors branching from the hall." The security infrastructure must be integrated into the same frame as the kiosks — not mentioned elsewhere in the prompt.
+
+**Most impacted variant:** Enhanced Detail, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Room test 7 (8.0). Scale and organization correct, but fingerprint scanners and clearance kiosks rendered as consumer ticket/check-in terminals.
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.
