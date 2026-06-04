@@ -11,30 +11,38 @@ Use this set to evaluate regression whenever skill guidance changes and to build
 5. Fill result quality scores into the corpus entry
 6. When a failure pattern has been observed 5+ times with consistent fix outcomes, promote its status from Observed to Proven
 
+These two tracks capture different testing goals:
+
+**Track A — Environment Design:** Tests model capability — can it understand worldbuilding concepts? Does architectural vocabulary produce stronger identity? Does lighting language work? Used for developing prompting principles.
+
+**Track B — VN Background Production:** Tests asset usability — does the image work as a visual novel background? Does it have sprite space, readable composition, reusable perspective? Used for production asset validation.
+
+Entries with no track label are pre-concept seed entries.
+
 ## Canonical requests (20)
 
-| # | Entry label | Asset type | Status |
-|---|-------------|-----------|--------|
-| 1 | poison-potion-icon | icon | seeded |
-| 2 | mana-potion-icon | icon | seeded |
-| 3 | iron-longsword-icon | icon | seeded |
-| 4 | arcane-staff-icon | icon | seeded |
-| 5 | forest-goblin-enemy-sprite | enemy sprite | seeded |
-| 6 | skeleton-enemy-sprite | enemy sprite | seeded |
-| 7 | healing-shrine-prop | prop | seeded |
-| 8 | explosive-barrel-prop | prop | seeded |
-| 9 | fantasy-inventory-panel | UI | seeded |
-| 10 | quest-journal-ui | UI | seeded |
-| 11 | fireball-spell-effect | VFX | seeded |
-| 12 | ice-shield-effect | VFX | seeded |
-| 13 | pixel-art-village-house | building | seeded |
-| 14 | castle-watchtower | building | seeded |
-| 15 | swamp-ground-tile | environment tile | seeded |
-| 16 | forest-path-tile | environment tile | seeded |
-| 17 | blacksmith-facade | building | seeded |
-| 18 | treasure-chest-sprite | pickup sprite | seeded |
-| 19 | poison-cloud-vfx | VFX | seeded |
-| 20 | rune-altar-prop | prop | seeded |
+| # | Entry label | Asset type | Track | Status |
+|---|-------------|-----------|-------|--------|
+| 1 | poison-potion-icon | icon | — | seeded |
+| 2 | mana-potion-icon | icon | — | seeded |
+| 3 | iron-longsword-icon | icon | — | seeded |
+| 4 | arcane-staff-icon | icon | — | seeded |
+| 5 | forest-goblin-enemy-sprite | enemy sprite | — | seeded |
+| 6 | skeleton-enemy-sprite | enemy sprite | — | seeded |
+| 7 | healing-shrine-prop | prop | — | seeded |
+| 8 | explosive-barrel-prop | prop | — | seeded |
+| 9 | fantasy-inventory-panel | UI | — | seeded |
+| 10 | quest-journal-ui | UI | — | seeded |
+| 11 | fireball-spell-effect | VFX | — | seeded |
+| 12 | ice-shield-effect | VFX | — | seeded |
+| 13 | pixel-art-village-house | building | — | seeded |
+| 14 | castle-watchtower | building | — | seeded |
+| 15 | swamp-ground-tile | environment tile | — | seeded |
+| 16 | forest-path-tile | environment tile | — | seeded |
+| 17 | blacksmith-facade | building | — | seeded |
+| 18 | treasure-chest-sprite | pickup sprite | — | seeded |
+| 19 | poison-cloud-vfx | VFX | — | seeded |
+| 20 | rune-altar-prop | prop | — | seeded |
 
 ## Scoring rubric
 
