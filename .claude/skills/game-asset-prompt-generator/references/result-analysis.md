@@ -199,6 +199,25 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-12: Administrative Function Drift
+
+**Observed:** A prompt describing a facility's administrative purpose (intake processing, registration, documentation) produces a generic or unrelated space (locker room, storage, office). The model fails to render the intended function.
+
+**Likely cause:** The prompt described bureaucratic functions ("biometric registration stations", "evidence intake counters", "containment documentation kiosks") that lack strong visual identities. The model has no clear training reference for "evidence intake counter" — it could look like a thousand different things. The model falls back to its strongest visual prior for any room with "containment" + "booths": storage compartments.
+
+**Correction:** Translate every administrative function into concrete, drawable objects. Replace:
+- "biometric registration station" → "fingerprint scanner pedestal, camera-based facial recognition terminal, ID card enrollment desk"
+- "evidence intake counter" → "sealed evidence lockers, numbered evidence drawers, secure transfer windows"
+- "containment documentation kiosk" → "wall-mounted clearance terminal, security report touchscreen, authorization workstation"
+
+**Most impacted variant:** Enhanced Detail, Art Director
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Room test 4 scored 7.0; model produced locker room instead of intake facility. Contrasts with checkpoint test (9.2) where every function had obvious physical objects.
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.

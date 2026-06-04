@@ -35,6 +35,7 @@ Where:
 | 2026-06-04 | Z Image Turbo | checkpoint-lobby | Room test 1: checkpoint lobby | 8 | 9 | 8 | 9.2 | none | SP-02, SP-07 | Clear function, strong repetition, feels like a real place. "Checkpoint" produces obvious visible consequences (gates, scanners, lanes). Supports P1: model renders operational function better than organizational identity. |
 | 2026-06-04 | Z Image Turbo | operations-center | Room test 2: operations center | 7 | 6 | 6 | 7.5 | CT-01 | none | Model interpreted as SOC/IT room with monitors. No institutional consequences — feels like startup or NOC, not government ops. "Operations center" has too many competing visual references. |
 | 2026-06-04 | Z Image Turbo | operations-center | Room test 3: operations center (alt) | 6 | 4 | 5 | 6.5 | CT-01 | none | Weaker prompt, drifted to generic office. "Tiered workstations, status displays, consoles" doesn't constrain environment strongly enough. Model filled gaps with office prior. |
+| 2026-06-04 | Z Image Turbo | intake-processing | Room test 4: metahuman intake facility | 8 | 6 | 7 | 7.0 | CT-12 | SP-05 | Admin functions (biometric stations, evidence counters, documentation kiosks) too abstract — model rendered locker room / changing facility instead. "Observation booths" + "containment" triggered storage compartments. Key: every function must be translated into visible furniture or infrastructure, not bureaucratic labels. |
 
 ## Analysis prompts
 
