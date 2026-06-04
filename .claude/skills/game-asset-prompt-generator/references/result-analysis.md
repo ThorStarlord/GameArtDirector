@@ -250,6 +250,22 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-15: Component Collapse in Large Procedural Spaces
+
+**Observed:** A prompt listing multiple distinct object types (fingerprint pedestals, camera arches, turnstiles, verification kiosks) produces a homogeneous row of identical terminals instead. The model collapses specific components into a generic "processing infrastructure" concept.
+
+**Likely cause:** Large procedural spaces (halls, processing floors, open-plan facilities) trigger the model's "simplify and repeat" behavior. When given a large empty space and 5+ object types, the model fills the space with repetitions of the most generic object rather than placing each distinct type. The scale of the space overwhelms the specificity of the objects.
+
+**Correction:** Either reduce the space scale (anchor as "checkpoint room" not "processing hall") or use spatial staging to assign specific zones: "foreground: three fingerprint scanning pedestals, middle ground: security turnstiles, background: observation windows and clearance desk." Explicit spatial layers prevent the model from defaulting to repetition.
+
+**Most impacted variant:** Enhanced Detail, Asset Pipeline
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Room test 8 (8.2). Security context improved but all objects collapsed into identical terminal rows.
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.
