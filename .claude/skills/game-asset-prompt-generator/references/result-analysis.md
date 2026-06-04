@@ -262,7 +262,7 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 **Status:** Observed
 
-**Evidence:** 1 observation — Room test 8 (8.2). Security context improved but all objects collapsed into identical terminal rows.
+**Evidence:** 2 observations — Room test 8 (large hall, all objects → identical terminal rows, 8.2) and Room test 9 (spatial staging checkpoint, fingerprint pedestals → kiosks, turnstiles missing, 6.5). Consistent pattern: the model renders procedural hardware as generic computer stations regardless of space scale or staging.
 
 ---
 
