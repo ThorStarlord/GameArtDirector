@@ -298,6 +298,26 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
+### CT-18: Vertical Signal Overpowering Circulation (Ideogram / Z-Image Turbo)
+
+**Observed:** A prompt intended to describe a towering corridor or multi-level passage produces a vertical shaft, interior canyon, or maintenance superstructure instead. The image reads as a vertical transit spine or atrium rather than a path forward. Circulation (depth movement) is secondary to architecture (vertical mass).
+
+**Likely cause:** The ratio of vertical-to-depth cues is unbalanced. Strong vertical signals — "multi-story", "stacked catwalks", "towering", "overwhelming height", "low angle", "floor only 15-20%" — collectively tell the model to build upward. Weak depth signals — "corridor extends forward", "continuation path", "readable route" — cannot compete. The model prioritizes the stronger cue set, producing "monumental architecture with a corridor somewhere in it" rather than "a corridor with monumental architecture."
+
+**Correction:** Maintain a minimum 1:1 ratio of depth-to-vertical cues when the scene must read as a corridor. For every vertical signal, include an equivalent depth signal. Specific corrections:
+- Increase floor percentage from 15-20% to 30-40% — more floor area strengthens the circulation cue
+- Make forward movement the primary visual focus: "long uninterrupted corridor axis, strong central vanishing point, repeating floor markings leading into depth, corridor continuation is the primary visual focus"
+- Limit visible upper levels: "ceiling disappears into darkness, upper structural levels only partially visible, suggested height rather than fully revealed height" — hidden height reads as unknowable scale, not atrium openness
+- Or, embrace the result as Category B (Monumental Space) and rename the location accordingly
+
+**Most impacted variant:** Enhanced Detail, Art Director
+
+**Status:** Observed
+
+**Evidence:** 1 observation — Ideogram Test 4. Prompt mixed strong vertical cues (multi-story, stacked catwalks, low angle, 15-20% floor) with weak depth cues. Result: monumental architecture overpowering circulation. Vertical scale 10/10, corridor readability 6/10.
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.

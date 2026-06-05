@@ -49,6 +49,7 @@ Where:
 | 2026-06-04 | Ideogram 4 | containment-corridor | Ideogram Test 1: corridor with 4 regions (floor/doors/glass/ceiling) | A | 7 | 8 | 8 | 8.5 | depth-flat | SP-08 | Regions strongly obeyed (floor 10/10, doors 9/10, glass 9/10, ceiling 10/10) but corridor depth weak (3/10). Front-facing institutional room instead of hallway. Style config changed to VN profile — convincing VN art style. |
 | 2026-06-04 | Ideogram 4 | intake-office | Ideogram Test 2: intake office with 4 regions (floor/counters/windows/ceiling) | A | 8 | 9 | 8 | 9.0 | none | SP-08 | Regions assembled into coherent waiting room despite no "waiting room" in prompt. Region descriptions (registration counters, observation windows) dominated composition. VN style consistent. |
 | 2026-06-04 | Ideogram 4 | operations-center | Ideogram Test 3: command center regions overrode corridor HLD | A | 8 | 7 | 7 | 8.0 | scene-conflict | SP-08 | Regions (workstations, displays, gallery) overpowered "containment corridor" HLD. Model produced convincing VN operations center but wrong room type. Proves regions > HLD in hierarchy. |
+| 2026-06-04 | Ideogram 4 | towering-corridor | Ideogram Test 4: towering corridor (vertical + depth mixed) | A | 7 | 9 | 8 | 8.8 | CT-18 | SP-08 | Vertical cues (multi-story, catwalks, conduits, low angle) overpowered circulation cues. Reads as vertical transit spine / interior canyon, not corridor. Monumental architecture 10/10, corridor readability 6/10. Strongest AEGIS atmosphere yet but wrong room type. |
 
 ## Analysis prompts
 

@@ -250,6 +250,14 @@ Spaces designed for authority, power, and institutional identity.
 
 **Prompting strategy:** Emphasize vertical structure, stacked levels, and massive architectural elements. Regional prompting excels here — wall/ceiling/floor zones create convincing monumental space. Model naturally associates "towering" + "institutional" with power-scale imagery (NERV HQ, Mass Effect Citadel, Control's Oldest House).
 
+**Critical constraint — vertical-to-depth cue ratio:** When the scene must read as a corridor or passage (i.e., a Category A space with Category B architecture), maintain a minimum 1:1 ratio of depth-to-vertical cues. For every vertical signal (multi-story, catwalks, low angle), include an equivalent depth signal (vanishing point, uninterrupted axis, floor markings leading forward). Specific mitigations:
+- Increase floor percentage to 30-40% (floor area strengthens circulation cue)
+- Specify "ceiling disappears into darkness" instead of fully revealing upper levels — hidden height reads as unknowable scale rather than atrium openness
+- Make forward movement the primary visual focus: "long uninterrupted corridor axis, strong central vanishing point, corridor continuation is the primary visual focus"
+- Or, if the identity value of the monumental composition outweighs the need for corridor readability, reclassify the location as a Category B space (vertical transit spine, central circulation shaft, megastructure concourse) and embrace the result
+
+**Evidence:** Ideogram Test 4. Strong vertical cues + weak depth cues → model produced a vertical service shaft / interior canyon (corridor readability 6/10, monumental architecture 10/10). The vertical signal set overwhelmed the circulation signal set.
+
 ### Why the distinction matters
 
 Corridor experiments consistently scored lower on institutional identity because transitional spaces communicate "this is where people walk" (relatable, mundane) while monumental spaces communicate "this organization is enormous" (awe, power). For faction identity shots (establishing AEGIS as a credible superpower agency), Category B produces stronger results with less effort. Category A remains necessary for gameplay-adjacent backgrounds (walking, transit, checkpoint scenes) but requires more deliberate prompting to achieve comparable identity strength.
