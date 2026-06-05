@@ -214,6 +214,48 @@ These need controlled tests before promoting findings to SKILL.md:
 
 ---
 
+---
+
+## Architectural Design Categories for Institutional VN Backgrounds
+
+From experimentation, institutional environments fall into two distinct categories that require different prompting strategies:
+
+### Category A — Transitional Spaces
+
+Spaces designed for movement, processing, and containment.
+
+| Attribute | Description |
+|-----------|-------------|
+| Purpose | movement, containment, processing, screening |
+| Camera | eye-level, horizontal, human scale |
+| Composition emphasis | depth, vanishing point, parallel walls |
+| Key challenge | preventing office/hospital drift |
+| Model responsiveness | weaker — easily drifts to generic indoor |
+| Examples | corridors, checkpoints, holding transfer routes, elevators, security screening lanes |
+
+**Prompting strategy:** Requires explicit depth language, architectural repetition (P2), and visible consequences (P1) to hold identity. Regional prompting struggles here — see CT-17 (perspective depth loss with wall-plane regions).
+
+### Category B — Monumental Spaces
+
+Spaces designed for authority, power, and institutional identity.
+
+| Attribute | Description |
+|-----------|-------------|
+| Purpose | authority, power, scale, institutional identity |
+| Camera | low-angle, architectural, monumental |
+| Composition emphasis | height, vertical repetition, towering structure |
+| Key challenge | preventing empty-boxy-atrium feel |
+| Model responsiveness | stronger — model readily renders grandeur |
+| Examples | main atriums, command towers, operations hubs, containment cores, briefing amphitheaters |
+
+**Prompting strategy:** Emphasize vertical structure, stacked levels, and massive architectural elements. Regional prompting excels here — wall/ceiling/floor zones create convincing monumental space. Model naturally associates "towering" + "institutional" with power-scale imagery (NERV HQ, Mass Effect Citadel, Control's Oldest House).
+
+### Why the distinction matters
+
+Corridor experiments consistently scored lower on institutional identity because transitional spaces communicate "this is where people walk" (relatable, mundane) while monumental spaces communicate "this organization is enormous" (awe, power). For faction identity shots (establishing AEGIS as a credible superpower agency), Category B produces stronger results with less effort. Category A remains necessary for gameplay-adjacent backgrounds (walking, transit, checkpoint scenes) but requires more deliberate prompting to achieve comparable identity strength.
+
+---
+
 ## Relationship to Z-Image Turbo Principles
 
 The Z-Image Turbo principles were developed for a model that:
