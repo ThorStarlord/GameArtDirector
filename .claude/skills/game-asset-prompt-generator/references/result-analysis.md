@@ -356,6 +356,63 @@ Maintain a deliberate object identity check: for every physical object in the pr
 
 ---
 
+## Evaluation Template
+
+Use this structured comparison after every Ideogram test run. Score each category 1-10 and document what the model captured vs missed.
+
+```
+## Overall Match Score
+
+| Category | Score |
+|----------|-------|
+| Mood | /10 |
+| Lighting | /10 |
+| Perspective | /10 |
+| [Scale / Vertical] | /10 |
+| [Identity / Faction match] | /10 |
+| [Utility / Function] | /10 |
+| [Other relevant category] | /10 |
+| [Other relevant category] | /10 |
+
+## What the Image Successfully Captured
+
+### [Category name]
+Prompt said: [excerpt from prompt]
+Image: [what rendered]
+Score: ✅ / ⚠️ / ❌
+Analysis: [why it matched or why the model interpreted it differently]
+
+### [Next category]
+...
+
+## What the Image Failed To Capture
+
+### [Category name]
+Prompt said: [excerpt from prompt]
+Image: [what rendered instead]
+Score: ✅ / ⚠️ / ❌
+Root cause: [why — trace to specific prompt nouns or structure]
+
+### [Next category]
+...
+
+## What in the JSON Caused This
+
+[Identify the specific phrase, noun, or structural choice that produced the failure]
+
+[Quote the problematic JSON excerpt]
+
+## Biggest Missing Element
+
+[Single most impactful omission vs the intended concept]
+
+## Revision Plan
+
+[Specific changes to make in the next iteration]
+```
+
+---
+
 ## Analysis Entry Template
 
 Use this when you encounter a failure pattern not in the catalog above.
@@ -390,3 +447,16 @@ When a result fails:
 4. If the pattern is new and confirmed across 3+ attempts, add it to the catalog
 5. Record both attempts in prompt-corpus.md with the CT code in the Notes field
 6. Update the Evidence count on the pattern entry
+
+### Full lifecycle (for standalone prompt development outside the 4-variant workflow)
+
+When developing a single prompt (e.g., an Ideogram 4 JSON caption):
+
+1. Draft using the core prompt framework and visual-descriptors.md vocabulary
+2. If JSON caption: follow docs/ideogram-4-caption-spec.md for schema structure
+3. Generate test image (Ideogram or target model)
+4. Run structured evaluation using the evaluation template above
+5. For each failure, check the failure pattern catalog and apply the correction
+6. If the failure is novel and structural (not just wording), add a new CT entry
+7. Revise the prompt and document both attempts
+8. Iterate until the output meets all intended categories at 8/10 or higher

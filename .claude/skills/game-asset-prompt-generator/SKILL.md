@@ -23,8 +23,15 @@ Default to natural-language prompt writing. Do not use legacy quality tags such 
 4. Expand the request using the core prompt framework.
 5. Return exactly 4 prompt variants with distinct emphasis.
 6. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
-7. If using Ideogram 4 with regional prompting, convert architectural zone descriptions into region boxes: expose each zone as a bounding-box region with an architectural mass noun (floor plane, left wall, right wall, ceiling) rather than listing individual props. Keep to 4-5 regions max.
-8. After image generation, evaluate results against the failure pattern catalog in references/result-analysis.md and feed corrections back into prompt revision.
+7. If generating an Ideogram 4 JSON caption, follow the schema in `docs/ideogram-4-caption-spec.md` — it defines style mode selection, key ordering, bbox rules, and structural requirements for direct import_json use.
+8. If using Ideogram 4 with regional prompting, convert architectural zone descriptions into region boxes: expose each zone as a bounding-box region with an architectural mass noun (floor plane, left wall, right wall, ceiling) rather than listing individual props. Keep to 4-5 regions max.
+9. After image generation, run a structured comparison against the failure pattern catalog:
+   a. Score each output category (mood, lighting, perspective, identity, etc.) on 1-10
+   b. Identify what the model captured and what it missed
+   c. Trace missed elements to specific prompt nouns — the model follows object vocabulary over context labels (see CT-16)
+   d. Document the finding in references/result-analysis.md using the evaluation template
+   e. Apply the correction and regenerate
+   f. Record both attempts in references/prompt-corpus.md
 
 ## Core prompt framework
 
@@ -115,6 +122,8 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 - For batch requests, output the shared batch identity anchor first, then the per-asset variants.
 
 When the request closely matches an existing corpus entry, load that entry first and adapt it rather than regenerating structure from scratch.
+
+When generating an Ideogram 4 JSON caption, follow the [Ideogram 4 caption spec](../../../docs/ideogram-4-caption-spec.md) for structural rules and style mode selection.
 
 When describing visible appearance — colors, skin tone, body type, perspective, age, or typography — use the vocabulary in [visual descriptors](references/visual-descriptors.md) for precise, visually grounded natural-language terms.
 
