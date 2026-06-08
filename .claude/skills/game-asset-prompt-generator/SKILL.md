@@ -24,7 +24,7 @@ Default to natural-language prompt writing. Do not use legacy quality tags such 
 5. Return exactly 4 prompt variants with distinct emphasis.
 6. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
 7. If generating an Ideogram 4 JSON caption, follow the schema in `docs/ideogram-4-caption-spec.md` — it defines style mode selection, key ordering, bbox rules, and structural requirements for direct import_json use.
-8. If using Ideogram 4 with regional prompting, convert architectural zone descriptions into region boxes: expose each zone as a bounding-box region with an architectural mass noun (floor plane, left wall, right wall, ceiling) rather than listing individual props. Keep to 4-5 regions max.
+8. If using Ideogram 4 regional prompting, follow `references/ideogram-regional-prompting.md`: use regions as semantic occupancy zones, keep to 3-5 major regions, use architectural mass nouns instead of individual props, and choose the region strategy by composition type. For corridors, do not default to left/right wall regions; use no regions or foreground/midground/background regions unless a flat architectural elevation is intended.
 9. After image generation, run a structured comparison against the failure pattern catalog:
    a. Score each output category (mood, lighting, perspective, identity, etc.) on 1-10
    b. Identify what the model captured and what it missed
@@ -112,7 +112,8 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 - When defining a faction's identity across multiple environment assets, provide two layers: a 2-3 word material ethos for surface constraint, and a vocabulary of repeated architectural elements (door cadence, panel rhythm, access hardware pattern) for spatial identity.
 - For dense prompts exceeding ~150 words, organize into labeled sections (SCENE, LIGHTING, PALETTE, MOOD, COMPOSITION, TECHNICAL) to keep the prompt additive and navigable rather than a flat prose wall.
 - When using Ideogram 4 regional prompting, describe regions as architectural masses (e.g., "registration counters", "observation windows", "industrial ceiling") not individual props (e.g., "keyboard", "camera", "light fixture"). The model treats region descriptions as semantic zone occupancy, not precise object placement instructions.
-- In Ideogram 4 regional prompts, ensure every region description reinforces the same room type as the high-level description. Mixing room types across regions (e.g., command center equipment in a corridor scene) causes the region descriptions to override the intended scene identity — see CT-16.
+- In Ideogram 4 regional prompts, ensure every region description reinforces the same room type as the high-level description. Mixing room types across regions (e.g., command center equipment in a corridor scene) causes the region descriptions to override the intended scene identity — see CT-18.
+- For Ideogram 4 corridor prompts, perspective belongs in `compositional_deconstruction.background`, not in wall-plane regions. Prefer no regions when depth is the highest priority, or use foreground/midground/background regions when regional control is necessary. Avoid left/right wall regions unless the goal is a flat architectural elevation.
 - For Ideogram 4 VN backgrounds, set the style block fields to `medium: digital illustration`, `aesthetics: Japanese visual novel background art`, `lighting: cold institutional lighting`, and leave `photo` blank. The defaults inherited from character-generation workflows (photography medium, character-focused aesthetics) actively degrade VN background results.
 
 ## Output requirements
