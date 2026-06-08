@@ -266,7 +266,45 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
-### CT-16: Regional Scene Lock (Ideogram)
+### CT-16: Nouns Override Atmosphere — Maintenance/Utility Drift
+
+**Observed:** A prompt that labels a space as a primary operations corridor (e.g., "AEGIS corridor", "command spine", "hero deployment route") and supports it with atmosphere words ("institutional", "operational", "surveilled") produces a maintenance tunnel, electrical utility corridor, or power infrastructure passage. The image contains conduit bundles, cable trays, junction boxes, and service panels but no authority signals, operational architecture, or evidence of personnel circulation.
+
+**Likely cause:** The prompt's visible nouns — conduit bundles, cable trays, junction boxes, service panels, maintenance catwalks, utility pipes — are all maintenance infrastructure objects. The model builds its visual world from objects, not atmosphere words. Even when the high-level description and style block specify "AEGIS" and "institutional", the object vocabulary tells the model "this is a maintenance space." The model renders what it can see described, not what it is told the space is called.
+
+This is a structural variant of CT-12 (Administrative Function Drift) and CT-14 (Consumer Kiosk Drift): the same mechanism — object vocabulary overriding intended room identity — but with maintenance/utility objects as the dominant signal rather than administrative or consumer objects.
+
+**Correction:** Replace every maintenance-specific noun with an operations-equivalent object that communicates authority, oversight, or personnel circulation:
+
+Replace these:
+- conduit bundles → recessed data trunk raceways
+- cable trays → integrated monitoring rail systems
+- junction boxes → access control nodes
+- service panels → security interface panels
+- maintenance catwalks → observation galleries / inspection galleries
+- utility pipes → sealed service columns / environmental control risers
+- mechanical wall → hardened operations partition
+
+Add these instead:
+- recessed observation galleries at upper levels
+- reinforced sector access portals at regular intervals
+- integrated security stations or monitoring alcoves
+- biometric or card-reader access architecture
+- command-access nodes with clearance hardware
+- deployment sector interface doors
+- personnel traffic indicators (floor markings, wayfinding, zone numbering)
+
+Maintain a deliberate object identity check: for every physical object in the prompt, ask "would this object be in the primary circulation spine of a national agency, or in a maintenance tunnel?" If the answer is "maintenance tunnel", replace it.
+
+**Most impacted variant:** Enhanced Detail, Art Director — these variants add the most objects, making them most vulnerable to unexamined noun choices.
+
+**Status:** Observed
+
+**Evidence:** 1 observation — AEGIS corridor JSON prompt. Every structural noun described maintenance infrastructure. The image faithfully rendered a maintenance tunnel (9/10 match to that intent) despite atmosphere words specifying "AEGIS" and "institutional" (2/10 match to intended agency identity). The model followed the object vocabulary, not the context labels.
+
+---
+
+### CT-18: Regional Scene Lock (Ideogram)
 
 **Observed:** Regional descriptions dominate scene composition to the point of overriding the high-level description. A "containment corridor" with command-center regions produces a command center. The model follows the regions' implied room type, not the HLD's stated room type.
 
@@ -282,7 +320,7 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
-### CT-17: Flat Composition / No Perspective Depth (Ideogram Regional)
+### CT-19: Flat Composition / No Perspective Depth (Ideogram Regional)
 
 **Observed:** Regional prompting produces front-facing architectural elevations rather than deep perspective scenes. Walls left/right/ceiling/floor produce a flat room with no vanishing point even when the background description specifies depth.
 
@@ -298,7 +336,7 @@ Each entry links an observable image failure to its likely prompt cause, correct
 
 ---
 
-### CT-18: Vertical Signal Overpowering Circulation (Ideogram / Z-Image Turbo)
+### CT-20: Vertical Signal Overpowering Circulation (Ideogram / Z-Image Turbo)
 
 **Observed:** A prompt intended to describe a towering corridor or multi-level passage produces a vertical shaft, interior canyon, or maintenance superstructure instead. The image reads as a vertical transit spine or atrium rather than a path forward. Circulation (depth movement) is secondary to architecture (vertical mass).
 
