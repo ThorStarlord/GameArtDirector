@@ -22,18 +22,26 @@ Planned adjacent skills:
 ## Structure
 
 ```text
-.claude/skills/
-  game-asset-prompt-generator/
-    SKILL.md
-    references/
-      asset-types.md
-      art-styles.md
-      prompt-corpus.md
-      icon-guidelines.md
-      prompt-patterns.md
-      readability-rules.md
-      sprite-guidelines.md
-      test-set.md
+.claude/
+  AGENTS.md              (optional; not yet created)
+  skills/
+    game-asset-prompt-generator/
+      SKILL.md
+      references/
+        asset-types.md
+        art-styles.md
+        prompt-corpus.md
+        icon-guidelines.md
+        prompt-patterns.md
+        readability-rules.md
+        sprite-guidelines.md
+        test-set.md
+    ideogram-4-prompt-engineer/
+      SKILL.md
+docs/
+  ideogram-4-caption-spec.md
+  SKILL_BOUNDARY.md       # skill vs project-doc boundary convention
+CLAUDE.md                 # project-level agent instructions
 ```
 
 ## Positioning
