@@ -22,10 +22,11 @@ Default to natural-language prompt writing. Do not use legacy quality tags such 
 3. Apply readability and asset-production rules that fit the request.
 4. Expand the request using the core prompt framework.
 5. Return exactly 4 prompt variants with distinct emphasis.
-6. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
-7. If generating an Ideogram 4 JSON caption, follow the schema in `docs/ideogram-4-caption-spec.md` — it defines style mode selection, key ordering, bbox rules, and structural requirements for direct import_json use.
-8. If using Ideogram 4 regional prompting, follow `references/ideogram-regional-prompting.md`: use regions as semantic occupancy zones, keep to 3-5 major regions, use architectural mass nouns instead of individual props, and choose the region strategy by composition type. For corridors, do not default to left/right wall regions; use no regions or foreground/midground/background regions unless a flat architectural elevation is intended.
-9. After image generation, run a structured comparison against the failure pattern catalog:
+6. If the request references an existing project, canon, faction, location, batch, corpus entry, or approved prompt folder, load the strongest available source first and preserve its master style anchors, batch anchors, material ethos, palette logic, architectural vocabulary, and exclusions.
+7. For batch requests (multiple related assets), generate a shared batch identity anchor first, then adapt per-asset prompts from it.
+8. If generating an Ideogram 4 JSON caption, classify the scene or layout type before drafting, follow the [Ideogram 4 caption spec](../../../docs/ideogram-4-caption-spec.md), and run [Ideogram JSON validation](references/ideogram-json-validation.md) before output.
+9. If using Ideogram 4 regional prompting, follow `references/ideogram-regional-prompting.md`: use regions as semantic occupancy zones, keep to 3-5 major regions, use architectural mass nouns instead of individual props, and choose the region strategy by composition type. For corridors, do not default to left/right wall regions; use no regions or foreground/midground/background regions unless a flat architectural elevation is intended.
+10. After image generation, run a structured comparison against the failure pattern catalog:
    a. Score each output category (mood, lighting, perspective, identity, etc.) on 1-10
    b. Identify what the model captured and what it missed
    c. Trace missed elements to specific prompt nouns — the model follows object vocabulary over context labels (see CT-16)
@@ -48,7 +49,7 @@ Every prompt should cover:
 - Background rules
 - Game readability
 - Technical requirements
-- Spatial zones: which frame regions must stay clear (e.g., lower 35% for VN dialogue overlay, top margin for UI)
+- Spatial zones: which frame regions must stay clear (e.g., wide uncluttered foreground floor for VN dialogue overlay, clean top margin for UI)
 - Exclusion pairs: for each key element, specify what it IS and what it IS NOT (e.g., "glass reveals abstract glow only, not a busy lab interior")
 
 Organize dense prompts into labeled sections (e.g., SCENE, LIGHTING, PALETTE, MOOD, COMPOSITION) to keep detail additive without becoming a keyword wall.
@@ -100,13 +101,15 @@ End with a short explicit exclusion punchlist: comma-separated absolutes the out
 - In safe-mode interior prompts, keep lighting readable but directional; avoid fully uniform illumination unless the request explicitly calls for flat clinical brightness.
 - For pipeline-oriented corridor prompts, include at least one repeatable but non-intrusive landmark pattern (for example: periodic access reader cadence, safety-strip continuity, or panel-break rhythm) to improve continuity across batches while keeping the lower gameplay area clear.
 - If the request implies a franchise, project, or shared art style, keep the output style-consistent rather than inventing a disconnected look.
+- If approved project prompts or anchors exist, reuse their source vocabulary and continuity anchors before adding new detail; embed anchors into the relevant fields rather than appending raw quoted blocks.
 - Avoid text, watermarks, logos, UI labels, borders, or unrelated secondary subjects unless requested.
 - In Asset Pipeline prompts, open by naming the production artifact type (e.g., "background plate", "modular panel", "isolated sprite"). State the stable base blueprint before pipeline constraints. Label identity anchors as cross-shot continuity mechanisms. End with a short exclusion punchlist.
-- For VN backgrounds and environment shots where UI elements will overlay the frame, specify percentage-based spatial constraints (e.g., "bottom 35% as uncluttered floor space") to reserve safe zones for dialogue text, menus, or character sprites.
+- For VN backgrounds and environment shots where UI elements will overlay the frame, reserve safe zones with spatial language (e.g., "wide uncluttered foreground floor" or "clean top margin"), using percentages only as internal production notes if needed.
 - When a faction or location has a consistent surface language across multiple assets, condense it into a 2-3 word material ethos (e.g., "Stoic Slick: matte charcoal, anti-reflective coatings, precise engineered lines") and use it as a recurring constraint anchor across the batch.
 - For multi-asset batch requests, generate a shared batch identity anchor covering palette, material ethos, lighting logic, and exclusion rules before writing per-asset prompts. Prepend the anchor to every prompt in the batch to enforce visual continuity.
-- Use color hex references (`#0d1117`) only for specific glow/lighting cast values where precision matters. For broad surface and material descriptions, use descriptive color names paired with a material qualifier (e.g., "deep navy-black structure", "cold slate-blue wall panels") — models handle named ranges more reliably than hex codes for diffuse surfaces.
-- **Never use hex codes in Ideogram `color_palette` arrays.** Ideogram has weak-to-no semantic understanding of hex values in generated output. Use named color descriptions drawn from references/visual-descriptors.md memory colors vocabulary instead (e.g., `"gunmetal-grey architecture"`, `"icy steel-blue illumination"`, `"muted amber guidance strip"`). Pair each entry with a material or lighting qualifier for maximum influence.
+- For natural-language prompts, use descriptive color names paired with a material qualifier (e.g., "deep navy-black structure", "cold slate-blue wall panels") because broad surface color reads better when attached to visible materials.
+- For Ideogram 4 JSON captions, use uppercase hex strings in `color_palette` arrays. Official Ideogram 4 schema expects `#RRGGBB` values, up to 16 global colors and up to 5 per element. Put natural-language color/material descriptions in `desc`, `background`, `lighting`, or `aesthetics`, not in `color_palette`.
+- For Ideogram 4 JSON captions, keep total prose compact: target 150-350 words across generated string fields, with a hard ceiling around 400 words unless the user explicitly asks for a fuller exploratory draft.
 - Avoid frame percentage instructions (e.g., "floor occupies 30% of frame") — image models do not count percentages accurately. Use spatial language instead (e.g., "wide uncluttered foreground floor", "expansive floor surface leading into depth").
 - In Art Director prompts, open with a narrative thesis that collapses the space's worldbuilding into one frame. State the room's narrative function AND what narrative purpose it does NOT serve. Couple each compositional choice to its narrative reason, not just its visual form.
 - When defining a faction's identity across multiple environment assets, provide two layers: a 2-3 word material ethos for surface constraint, and a vocabulary of repeated architectural elements (door cadence, panel rhythm, access hardware pattern) for spatial identity.
@@ -128,6 +131,8 @@ When the request closely matches an existing corpus entry, load that entry first
 
 When generating an Ideogram 4 JSON caption, follow the [Ideogram 4 caption spec](../../../docs/ideogram-4-caption-spec.md) for structural rules and style mode selection.
 
+Before emitting Ideogram 4 JSON, run the [Ideogram JSON validation checklist](references/ideogram-json-validation.md), especially for word budget, source anchors, bbox strategy, palette format, and scene-type consistency.
+
 When describing visible appearance — colors, skin tone, body type, perspective, age, or typography — use the vocabulary in [visual descriptors](references/visual-descriptors.md) for precise, visually grounded natural-language terms.
 
-See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), [test set](references/test-set.md), [result analysis](references/result-analysis.md), [success patterns](references/success-patterns.md), [experiment log](references/experiment-log.md), [principles](references/principles.md), [Z-Image Turbo notes](references/z-image-turbo-notes.md), [model behavior](references/model-behavior.md), [visual descriptors](references/visual-descriptors.md), and [Ideogram regional prompting](references/ideogram-regional-prompting.md).
+See [asset types](references/asset-types.md), [art styles](references/art-styles.md), [readability rules](references/readability-rules.md), [icon guidelines](references/icon-guidelines.md), [sprite guidelines](references/sprite-guidelines.md), [prompt patterns](references/prompt-patterns.md), [prompt corpus](references/prompt-corpus.md), [test set](references/test-set.md), [result analysis](references/result-analysis.md), [success patterns](references/success-patterns.md), [experiment log](references/experiment-log.md), [principles](references/principles.md), [Z-Image Turbo notes](references/z-image-turbo-notes.md), [model behavior](references/model-behavior.md), [visual descriptors](references/visual-descriptors.md), [Ideogram regional prompting](references/ideogram-regional-prompting.md), and [Ideogram JSON validation](references/ideogram-json-validation.md).
