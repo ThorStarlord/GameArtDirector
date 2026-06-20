@@ -1,0 +1,4 @@
+interface:
+  display_name: "Suno Audio Asset Generator"
+  short_description: "Generate Suno-ready game audio prompts"
+  default_prompt: "Use $suno-audio-asset-generator to create Suno-ready prompts for my game audio asset brief."
